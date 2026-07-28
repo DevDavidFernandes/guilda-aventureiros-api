@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Banco de dados local
+backend/database/guilda.db
+
+# Variáveis de ambiente (se vier a usar)
+.env
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Configurações do editor
+.vscode/
