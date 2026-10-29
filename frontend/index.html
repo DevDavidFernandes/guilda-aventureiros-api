@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro da guilda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Public+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body class="primeira">
+    <header class="topo">
+      <div class="titulo">
+        <h1>Registro da guilda</h1>
+        <p>Livro de Thorin Barba-de-Ferro, taverna O Grifo Dourado</p>
+      </div>
+      <section id="painel" class="painel" aria-label="Resumo da guilda"></section>
+    </header>
+
+    <main class="corpo">
+      <section class="livro" aria-labelledby="t-herois">
+        <h2 id="t-herois">Heróis</h2>
+        <div id="lista-herois"></div>
+      </section>
+
+      <aside class="novo" aria-labelledby="t-novo">
+        <h2 id="t-novo">Novo herói</h2>
+        <form data-acao="criarHeroi" class="form-coluna">
+          <label>Nome <input name="nome" required autocomplete="off" /></label>
+          <label>Classe <input name="classe" placeholder="guerreiro, mago, arqueiro…" required autocomplete="off" /></label>
+          <label>Nível <input name="nivel" type="number" min="1" value="1" required /></label>
+          <button class="primario">Cadastrar herói</button>
+        </form>
+      </aside>
+    </main>
+
+    <dialog id="editor">
+      <form>
+        <h2></h2>
+        <div class="campos form-coluna"></div>
+        <div class="linha-botoes">
+          <button type="button" id="cancelar" class="sec">Cancelar</button>
+          <button class="primario">Salvar alterações</button>
+        </div>
+      </form>
+    </dialog>
+
+    <p id="aviso" role="status" aria-live="polite"></p>
+
+    <!-- a ordem importa: api.js primeiro, pois os outros usam suas funções -->
+    <script src="src/js/api.js"></script>
+    <script src="src/js/painel.js"></script>
+    <script src="src/js/itens.js"></script>
+    <script src="src/js/missoes.js"></script>
+    <script src="src/js/herois.js"></script>
+    <script>
+      atualizarTudo().then(() => setTimeout(() => document.body.classList.remove("primeira"), 2500));
+    </script>
+  </body>
+</html>
